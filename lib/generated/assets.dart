@@ -10,5 +10,7 @@ class Assets {
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
   static const String imagesHeart = 'assets/images/heart.png';
+  static const String imagesOnBoarding = 'assets/images/onBoarding.png';
+  static const String imagesPets = 'assets/images/pets.svg';
 
 }

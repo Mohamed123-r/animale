@@ -1,4 +1,5 @@
 
+import 'package:animals/features/onboarding/on_boarding_screen.dart';
 import 'package:animals/generated/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../constant.dart';
@@ -19,19 +20,20 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.pushReplacementNamed(
-      //   context,
+      Navigator.pushReplacementNamed(
+        context,
       //   CacheHelper.sharedPreferences.getBool(kIsLogin) == true
       //       ? HomeScreen.routeName
-      //       : StartScreen.routeName,
-      // );
+      //       :
+             OnBoardingScreen.routeName,
+      );
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.purpleColor,
+      color: AppColors.whiteColor,
       child: Center(
         child: Image.asset(Assets.imagesHeart, width: 200, height: 180),
       ),

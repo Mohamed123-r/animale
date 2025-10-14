@@ -1,118 +1,30 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTextStyles {
-  static TextStyle style34Bold(BuildContext context) {
+  static TextStyle style32Bold(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 34),
+      fontSize: getResponsiveScaleFactor(context, fontSize: 32),
       fontWeight: FontWeight.w700,
       color: Colors.black,
-      fontFamily: 'Inter',
+      fontFamily: 'Poppins',
     );
   }
 
-  static TextStyle style28SemiBold(BuildContext context) {
+  static TextStyle style16Regular(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 28),
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-  static TextStyle style25SemiBold(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 25),
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style22Medium(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 22),
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-  static TextStyle style22SemiBold(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 22),
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style17Medium(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 17),
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style17Regular(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 17),
+      fontSize: getResponsiveScaleFactor(context, fontSize: 16),
       fontWeight: FontWeight.w400,
       color: Colors.black,
-      fontFamily: 'Inter',
+      fontFamily: 'Poppins',
     );
   }
 
-  static TextStyle style15Medium(BuildContext context) {
+  static TextStyle style18Medium(BuildContext context) {
     return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 15),
+      fontSize: getResponsiveScaleFactor(context, fontSize: 18),
       fontWeight: FontWeight.w500,
       color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style15Regular(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 15),
-      fontWeight: FontWeight.w400,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style13Medium(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 13),
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style13Regular(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 13),
-      fontWeight: FontWeight.w400,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style11Medium(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 11),
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
-      fontFamily: 'Inter',
-    );
-  }
-
-  static TextStyle style11Regular(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveScaleFactor(context, fontSize: 11),
-      fontWeight: FontWeight.w400,
-      color: Colors.black,
-      fontFamily: 'Inter',
+      fontFamily: 'Poppins',
     );
   }
 }
