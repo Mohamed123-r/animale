@@ -10,7 +10,13 @@ class Assets {
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
   static const String imagesHeart = 'assets/images/heart.png';
+  static const String imagesHeart1 = 'assets/images/heart1.svg';
+  static const String imagesLocation = 'assets/images/location.svg';
+  static const String imagesNotification = 'assets/images/notification.svg';
   static const String imagesOnBoarding = 'assets/images/onBoarding.png';
   static const String imagesPets = 'assets/images/pets.svg';
+  static const String imagesSearch = 'assets/images/search.svg';
+  static const String imagesSetting = 'assets/images/setting.svg';
+  static const String imagesTest1 = 'assets/images/test1.png';
 
 }

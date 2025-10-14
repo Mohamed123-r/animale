@@ -8,11 +8,32 @@ abstract class AppTextStyles {
       color: Colors.black,
       fontFamily: 'Poppins',
     );
+  }  static TextStyle style20Bold(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 20),
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
   }
 
   static TextStyle style16Regular(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 16),
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
+  }  static TextStyle style14SemiBold(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
+  }static TextStyle style14Regular(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 14),
       fontWeight: FontWeight.w400,
       color: Colors.black,
       fontFamily: 'Poppins',
@@ -23,6 +44,20 @@ abstract class AppTextStyles {
     return TextStyle(
       fontSize: getResponsiveScaleFactor(context, fontSize: 18),
       fontWeight: FontWeight.w500,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
+  }   static TextStyle style18Bold(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 18),
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
+  }  static TextStyle style24Bold(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 24),
+      fontWeight: FontWeight.w700,
       color: Colors.black,
       fontFamily: 'Poppins',
     );
