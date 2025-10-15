@@ -1,5 +1,6 @@
 import 'package:animals/generated/assets.dart';
 import 'package:flutter/material.dart';
+import '../details_screen.dart';
 import 'product_item.dart';
 
 class HomeProductsSection extends StatelessWidget {
@@ -61,7 +62,13 @@ class HomeProductsSection extends StatelessWidget {
           final pet = pets[index];
           return Padding(
             padding: EdgeInsets.only(top: index == 0 ? 16 : 0),
-            child: ProductItem(pet: pet),
+            child: GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context,
+                      DetailsScreen.routeName,
+                      arguments: pets[index]['image']);
+                },
+                child: ProductItem(pet: pet)),
           );
         },
       ),
