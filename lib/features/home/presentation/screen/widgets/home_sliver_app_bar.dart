@@ -8,9 +8,11 @@ class HomeSliverAppBar extends StatelessWidget {
   const HomeSliverAppBar({
     super.key,
     required TextEditingController searchController,
-  }) : _searchController = searchController;
+    required Function(String) onSearchChanged,
+  }) : _searchController = searchController, _onSearchChanged = onSearchChanged;
 
   final TextEditingController _searchController;
+  final Function(String) _onSearchChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -35,40 +37,48 @@ class HomeSliverAppBar extends StatelessWidget {
           ),
         ),
       ],
-
       backgroundColor: Colors.transparent,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(72),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: _searchController,
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    hintStyle: AppTextStyles.style16Regular(
-                      context,
-                    ).copyWith(color: AppColors.greyColor),
-                    prefixIcon: SvgPicture.asset(
-                      Assets.imagesSearch,
-                      fit: BoxFit.scaleDown,
-                    ),
-                    suffixIcon: SvgPicture.asset(
-                      Assets.imagesSetting,
-                      fit: BoxFit.scaleDown,
-                    ),
-                    filled: true,
-                    fillColor: Color(0xffF6F6F6),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
+          child: ValueListenableBuilder<TextEditingValue>(
+            valueListenable: _searchController,
+            builder: (context, value, child) {
+              return Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _searchController,
+                      onChanged: _onSearchChanged,
+                      decoration: InputDecoration(
+                        hintText: 'Search...',
+                        hintStyle: AppTextStyles.style16Regular(context).copyWith(color: AppColors.greyColor),
+                        prefixIcon: SvgPicture.asset(
+                          Assets.imagesSearch,
+                          fit: BoxFit.scaleDown,
+                        ),
+                        suffixIcon: value.text.isNotEmpty
+                            ? IconButton(
+                          icon: const Icon(Icons.clear, color: Colors.grey),
+                          onPressed: () {
+                            _searchController.clear();
+                            _onSearchChanged('');
+                          },
+                        )
+                            : null,
+                        filled: true,
+                        fillColor: const Color(0xffF6F6F6),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           ),
         ),
       ),

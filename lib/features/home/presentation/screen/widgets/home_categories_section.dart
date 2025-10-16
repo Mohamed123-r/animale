@@ -32,7 +32,9 @@ class HomeCategoriesSection extends StatelessWidget {
                   left: index == 0 ? 16 : 0,
                   right: index == category.length - 1 ? 16 : 0,
                 ),
-                child: CategoryItem(title: category[index]),
+                child: CategoryItem(title: category[index],
+                isSelected:index==1  ,
+                ),
               ),
               separatorBuilder: (context, index) => const SizedBox(width: 12),
             ),
@@ -44,9 +46,10 @@ class HomeCategoriesSection extends StatelessWidget {
 }
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.title});
+  const CategoryItem({super.key, required this.title, this.isSelected = false});
 
   final String title;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +57,14 @@ class CategoryItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: AppColors.teal2Color,
+        color: isSelected ? AppColors.tealColor : AppColors.teal2Color,
       ),
       child: Center(
         child: Text(
           title,
-          style: AppTextStyles.style14SemiBold(
-            context,
-          ).copyWith(color: AppColors.tealColor),
+          style: AppTextStyles.style14SemiBold(context).copyWith(
+            color: isSelected ? AppColors.whiteColor : AppColors.tealColor,
+          ),
         ),
       ),
     );
