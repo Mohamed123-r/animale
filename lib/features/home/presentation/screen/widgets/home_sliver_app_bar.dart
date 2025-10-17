@@ -30,7 +30,7 @@ class HomeSliverAppBar extends StatelessWidget {
           padding: const EdgeInsets.only(right: 16.0),
           child: IconButton(
             icon: SvgPicture.asset(
-              Assets.imagesNotification,
+              Assets.imagesHeart2,
               color: AppColors.black20Color,
             ),
             onPressed: () {},

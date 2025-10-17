@@ -62,27 +62,21 @@ class ProductItem extends StatelessWidget {
                       style: AppTextStyles.style18Bold(context),
                     ),
                     const SizedBox(height: 4),
-                    // pet.name!.isNotEmpty
-                    //     ? Text(
-                    //         pet['gender']!,
-                    //         style: AppTextStyles.style14Regular(
-                    //           context,
-                    //         ).copyWith(color: AppColors.greyColor),
-                    //       )
-                    //     : Text(
-                    //         "Male & Female",
-                    //         style: AppTextStyles.style14Regular(
-                    //           context,
-                    //         ).copyWith(color: AppColors.greyColor),
-                    //       ),
+                  Text(
+                      "(${pet.lifeSpan}) Years",
+                            style: AppTextStyles.style14Regular(
+                              context,
+                            ).copyWith(color: AppColors.greyColor),
+                          ),
+                    const SizedBox(height: 4),
                     Text(
-                      pet.lifeSpan!,
+                      "(${pet.weight.metric!}) Kg",
 
                       style: AppTextStyles.style14Regular(
                         context,
                       ).copyWith(color: AppColors.greyColor),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 4),
                     Row(
                       children: [
                         SvgPicture.asset(Assets.imagesLocation),
