@@ -1,4 +1,4 @@
-import 'package:animals/features/home/presentation/screen/widgets/home_categories_section.dart';
+import 'package:animals/features/home/presentation/screen/widgets/custom_categories_section.dart';
 import 'package:animals/features/home/presentation/screen/widgets/home_sliver_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,9 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: _scrollController,
             physics: const AlwaysScrollableScrollPhysics(),
             slivers: [
-              HomeSliverAppBar(searchController: _searchController,
-                onSearchChanged: (query) => context.read<BreedCubit>().searchBreeds(query),),
-              HomeCategoriesSection(),
+              HomeSliverAppBar(
+                searchController: _searchController,
+                onSearchChanged: (query) =>
+                    context.read<BreedCubit>().searchBreeds(query),
+              ),
+              SliverToBoxAdapter(child: CustomCategoriesSection()),
               BlocConsumer<BreedCubit, BreedState>(
                 listener: (context, state) {},
                 builder: (context, state) {

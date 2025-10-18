@@ -1,5 +1,6 @@
 import 'package:animals/core/utils/app_color.dart';
 import 'package:animals/core/utils/app_text_style.dart';
+import 'package:animals/features/home/presentation/screen/favorite_screen.dart';
 import 'package:animals/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,7 +10,8 @@ class HomeSliverAppBar extends StatelessWidget {
     super.key,
     required TextEditingController searchController,
     required Function(String) onSearchChanged,
-  }) : _searchController = searchController, _onSearchChanged = onSearchChanged;
+  }) : _searchController = searchController,
+       _onSearchChanged = onSearchChanged;
 
   final TextEditingController _searchController;
   final Function(String) _onSearchChanged;
@@ -33,7 +35,9 @@ class HomeSliverAppBar extends StatelessWidget {
               Assets.imagesHeart2,
               color: AppColors.black20Color,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, FavoriteScreen.routeName);
+            },
           ),
         ),
       ],
@@ -53,19 +57,24 @@ class HomeSliverAppBar extends StatelessWidget {
                       onChanged: _onSearchChanged,
                       decoration: InputDecoration(
                         hintText: 'Search...',
-                        hintStyle: AppTextStyles.style16Regular(context).copyWith(color: AppColors.greyColor),
+                        hintStyle: AppTextStyles.style16Regular(
+                          context,
+                        ).copyWith(color: AppColors.greyColor),
                         prefixIcon: SvgPicture.asset(
                           Assets.imagesSearch,
                           fit: BoxFit.scaleDown,
                         ),
                         suffixIcon: value.text.isNotEmpty
                             ? IconButton(
-                          icon: const Icon(Icons.clear, color: Colors.grey),
-                          onPressed: () {
-                            _searchController.clear();
-                            _onSearchChanged('');
-                          },
-                        )
+                                icon: const Icon(
+                                  Icons.clear,
+                                  color: Colors.grey,
+                                ),
+                                onPressed: () {
+                                  _searchController.clear();
+                                  _onSearchChanged('');
+                                },
+                              )
                             : null,
                         filled: true,
                         fillColor: const Color(0xffF6F6F6),
