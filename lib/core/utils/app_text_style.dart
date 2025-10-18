@@ -53,6 +53,13 @@ abstract class AppTextStyles {
       color: Colors.black,
       fontFamily: 'Poppins',
     );
+  }  static TextStyle style12Regular(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveScaleFactor(context, fontSize: 12),
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+      fontFamily: 'Poppins',
+    );
   }
 
   static TextStyle style18Medium(BuildContext context) {

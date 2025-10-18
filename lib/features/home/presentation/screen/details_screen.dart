@@ -1,6 +1,7 @@
 import 'package:animals/core/utils/app_color.dart';
 import 'package:animals/core/widgets/custom_button.dart';
 import 'package:animals/features/home/domain/entities/breed_entity.dart';
+import 'package:animals/features/home/presentation/screen/widgets/favorite_button.dart';
 import 'package:animals/features/home/presentation/screen/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -34,13 +35,7 @@ class DetailsScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                Assets.imagesHeart1,
-                color: AppColors.tealColor,
-              ),
-              onPressed: () {},
-            ),
+            child: FavoriteButton(pet: breedEntity),
           ),
         ],
         elevation: 0,

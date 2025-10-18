@@ -1,8 +1,12 @@
+import 'package:animals/features/home/domain/entities/breed_entity.dart';
 import 'package:animals/features/home/presentation/screen/widgets/custom_categories_section.dart'
     show CustomCategoriesSection;
+import 'package:animals/features/home/presentation/screen/widgets/favorite_item.dart';
+import 'package:animals/features/home/presentation/screen/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../constant.dart';
 import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../../../generated/assets.dart';
@@ -47,17 +51,21 @@ class FavoriteScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.zero,
-                itemCount: 10,
-                itemBuilder: (context, index) => GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      DetailsScreen.routeName,
-                      //  arguments: pet,
-                    );
-                  },
-                  child: FavoriteItem(),
-                ),
+                itemCount: favoriteList.length,
+                itemBuilder: (context, index) {
+                  BreedEntity petList = favoriteList[index];
+
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        DetailsScreen.routeName,
+                        arguments: petList,
+                      );
+                    },
+                    child: FavoriteItem(pet: petList),
+                  );
+                },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 8,
@@ -74,97 +82,3 @@ class FavoriteScreen extends StatelessWidget {
   }
 }
 
-class FavoriteItem extends StatelessWidget {
-  const FavoriteItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: AppColors.teal2Color,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  "pet.reference_image_id.toImageUrl()!",
-                  errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.error),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 8),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "pet.name!",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.style14SemiBold(context),
-                  ),
-                  const SizedBox(height: 4),
-
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(Assets.imagesLocation),
-                      const SizedBox(width: 4),
-                      Text(
-                        "pet.origin!",
-                        style: AppTextStyles.style12Regular(
-                          context,
-                        ).copyWith(color: AppColors.greyColor),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColors.teal2Color,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(8),
-
-                    onTap: () {},
-                    child: SvgPicture.asset(Assets.imagesHeart2),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}

@@ -10,6 +10,7 @@ class ApiInterceptor extends Interceptor {
     options.headers['lang'] = 'en';
    options.headers['Authorization'] =
         'Bearer ${CacheHelper.sharedPreferences.getString(kToken) ?? ''}';
-
+    options.headers['x-api-key'] =
+        'live_poQHaCQmagHJABubHXIpnqhjXWjJuSTzr2xnHGXoVY3cuSRr9ZZ0LwzZcCobeXay';
   }
 }

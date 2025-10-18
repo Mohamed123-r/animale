@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import 'core/Services/bloc_opesever.dart';
+import 'constant.dart';
+import 'core/api/bloc_opesever.dart';
 import 'core/database/cache/cache_helper.dart';
 import 'core/helper_functions/get_it.dart';
 import 'core/helper_functions/on_generate_route.dart';
@@ -22,8 +23,9 @@ Future<void> main() async {
   setupGetIt();
   await CacheHelper().init();
   Bloc.observer = CustomBlocObserver();
-
+  loadFavorites();
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {

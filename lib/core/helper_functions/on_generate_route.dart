@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/presentation/screen/details_screen.dart';
+import '../../features/home/presentation/screen/favorite_screen.dart';
 import '../../features/home/presentation/screen/home_screen.dart';
 import '../../features/splash/persentation/screen/splash_screen.dart';
 
@@ -27,6 +28,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) =>
             DetailsScreen(breedEntity: settings.arguments as BreedEntity),
+      );
+    case FavoriteScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) =>
+            FavoriteScreen(),
       );
 
     default:

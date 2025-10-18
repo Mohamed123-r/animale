@@ -5,6 +5,9 @@ import 'package:animals/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../constant.dart';
+import 'favorite_button.dart';
+
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key, required this.pet});
 
@@ -62,12 +65,12 @@ class ProductItem extends StatelessWidget {
                       style: AppTextStyles.style18Bold(context),
                     ),
                     const SizedBox(height: 4),
-                  Text(
+                    Text(
                       "(${pet.lifeSpan}) Years",
-                            style: AppTextStyles.style14Regular(
-                              context,
-                            ).copyWith(color: AppColors.greyColor),
-                          ),
+                      style: AppTextStyles.style14Regular(
+                        context,
+                      ).copyWith(color: AppColors.greyColor),
+                    ),
                     const SizedBox(height: 4),
                     Text(
                       "(${pet.weight.metric!}) Kg",
@@ -95,10 +98,7 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(Assets.imagesHeart1),
-        ),
+        FavoriteButton(pet: pet),
       ],
     );
   }
