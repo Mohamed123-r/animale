@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 import 'constant.dart';
 import 'core/api/bloc_opesever.dart';
@@ -25,7 +24,6 @@ Future<void> main() async {
   Bloc.observer = CustomBlocObserver();
   loadFavorites();
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {

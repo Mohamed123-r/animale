@@ -5,31 +5,27 @@ import '../../../../../constant.dart';
 import '../../../../../generated/assets.dart';
 import '../../../domain/entities/breed_entity.dart';
 
-class FavoriteButton extends StatefulWidget {
+class FavoriteButton extends StatelessWidget {
   const FavoriteButton({super.key, required this.pet});
 
   final BreedEntity pet;
 
   @override
-  State<FavoriteButton> createState() => _FavoriteButtonState();
-}
-
-class _FavoriteButtonState extends State<FavoriteButton> {
-  @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () async {
-        if (favoriteList.contains(widget.pet)) {
-          favoriteList.remove(widget.pet);
-        } else {
-          favoriteList.add(widget.pet);
-        }
-        await saveFavorites();
-        setState(() {});
+    return ValueListenableBuilder<List<BreedEntity>>(
+      valueListenable: favoriteNotifier,
+      builder: (context, favs, _) {
+        final isFav = favs.any((e) => e.id == pet.id);
+        return IconButton(
+          onPressed: () async {
+            await toggleFavorite(pet);
+            // لا حاجة لـ setState هنا لأن notifier سيُعيد بناء الـ ValueListenableBuilder
+          },
+          icon: isFav
+              ? SvgPicture.asset(Assets.imagesHeart2)
+              : SvgPicture.asset(Assets.imagesHeart1),
+        );
       },
-      icon: favoriteList.contains(widget.pet)
-          ? SvgPicture.asset(Assets.imagesHeart2)
-          : SvgPicture.asset(Assets.imagesHeart1),
     );
   }
 }

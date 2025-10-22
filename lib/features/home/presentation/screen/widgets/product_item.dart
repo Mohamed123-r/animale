@@ -5,7 +5,6 @@ import 'package:animals/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../constant.dart';
 import 'favorite_button.dart';
 
 class ProductItem extends StatelessWidget {
@@ -98,6 +97,7 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
+
         FavoriteButton(pet: pet),
       ],
     );

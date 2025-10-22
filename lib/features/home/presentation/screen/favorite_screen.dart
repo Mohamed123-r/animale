@@ -47,31 +47,44 @@ class FavoriteScreen extends StatelessWidget {
             SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.zero,
-                itemCount: favoriteList.length,
-                itemBuilder: (context, index) {
-                  BreedEntity petList = favoriteList[index];
+              child: ValueListenableBuilder<List<BreedEntity>>(
+                valueListenable: favoriteNotifier,
+                builder: (context, favs, _) {
+                  if (favs.isEmpty) {
+                    return SizedBox(
+                      height: 200,
+                      child: Center(child: Text('No favorites yet')),
+                    );
+                  }
+                  return GridView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    itemCount: favs.length,
+                    itemBuilder: (context, index) {
+                      BreedEntity petList = favs[index];
 
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        DetailsScreen.routeName,
-                        arguments: petList,
+                      return GestureDetector(
+                        onTap: () async {
+                          // يمكنك انتظار نتيجة من الشاشة التفصيلية لو أردت
+                          await Navigator.pushNamed(
+                            context,
+                            DetailsScreen.routeName,
+                            arguments: petList,
+                          );
+                          // لا حاجة لاعادة تحميل هنا لأن notifier سيحدث تلقائيًا من الـ Details إذا استُخدم toggleFavorite
+                        },
+                        child: FavoriteItem(pet: petList),
                       );
                     },
-                    child: FavoriteItem(pet: petList),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                      childAspectRatio: 0.8,
+                    ),
                   );
                 },
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 0.8,
-                ),
               ),
             ),
             SizedBox(height: 12),
@@ -81,4 +94,3 @@ class FavoriteScreen extends StatelessWidget {
     );
   }
 }
-
