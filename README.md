@@ -4,9 +4,9 @@
 ## 🖼️ Screenshots
 
 
-| Splash Screen                       | Onboarding                           | Home Screen                        |
+| Details Screen                       | Home Screen                           | Favorite Screen                        |
 |-------------------------------------|--------------------------------------|------------------------------------|
-| ![Details](screen_shots/splash.png) | ![Homo](screen_shots/onboarding.png) | ![Favorite](screen_shots/home.png) |
+| (![1](https://github.com/user-attachments/assets/d201bb9d-55d8-4ffa-8e5f-65335de4ea1d) | (![2](https://github.com/user-attachments/assets/bacadbf1-cc18-4212-b206-85979a72d648) | (![3](https://github.com/user-attachments/assets/51c10774-6af2-4738-aeac-e12859702420) |
 
 ---
 
